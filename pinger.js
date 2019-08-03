@@ -31,7 +31,7 @@ function check() {
 
   request({
     method: 'GET',
-    url: 'https://github.com/mountAP/pappuPinger',
+    url: 'https://ppuponline.in/index.php?act=home',
 
   }, (err, res, body) => {
     

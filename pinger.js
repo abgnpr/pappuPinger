@@ -1,17 +1,17 @@
 // PappuPinger
 
-const commandExists = require('command-exists');
-const { exec } = require('child_process');
+const fs = require('fs')
 const rl = require('readline-sync')
-const request = require('request')
 const cheerio = require('cheerio')
+const request = require('request')
 const moment = require('moment')
 const jsdiff = require('diff');
-const fs = require('fs')
 require('colors');
+const { exec } = require('child_process');
+const commandExists = require('command-exists');
 
 
-const interval = rl.questionInt('Duration between checks in millisec? (e.g. 2000 for 2sec) : ')
+const interval = rl.questionInt('\nDuration between checks in millisec? (e.g. 2000 for 2sec) : ')
 let prev_siteText = undefined
 let errDisplayed = false
 
@@ -31,13 +31,14 @@ function check() {
 
   request({
     method: 'GET',
-    url: 'https://ppuponline.in/index.php?act=home',
+    url: 'https://github.com/mountAP/pappuPinger',
 
   }, (err, res, body) => {
+    
     if (err) {
       if (!errDisplayed) {
         console.log('\nDisconnected / page down / not available\n\
-    Will try to reconnect on next ping.')
+    Will try to reconnect on next ping.');
         errDisplayed = true
       }
       return
@@ -58,9 +59,9 @@ function check() {
         // console.log('no change')
 
       } else {
-        console.log(`\nchanged / updated !  ${
+        console.log(`\n\nchanged / updated !  ${
           moment().format("DD/MM/YYYY hh:mm a")}`)
-        let differences = jsdiff.diffLines(prev_siteText + '', siteText + '')
+        let differences = jsdiff.diffLines(prev_siteText+'', siteText)
         differences.forEach((part) => {
           var color = part.added ? 'green' : part.removed ? 'red' : 'grey';
           if (color != 'grey')
@@ -68,7 +69,7 @@ function check() {
         })
         commandExists('termux-notification')
           .then(function (command) {
-            exec(`${command} -title Changed! -content 'Something's changed in you page. Check the terminal.'`, (err, stdout, stderr) => {
+            exec(`${command} -title Changed! -content 'Something\'s changed in you page. Check the terminal.'`, (err, stdout, stderr) => {
               if (err) {
                 console.error(err);
                 return;

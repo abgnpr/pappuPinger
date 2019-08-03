@@ -16,7 +16,7 @@ A node script that pings our university website and notifies us about changes.
 
 * NOTE: You must have nodejs v12 or above
 
-**Bonus for Termux Users: ** You get a system notification if you have `termux-api` installed. 
+**Bonus for Termux Users:** You get a system notification if you have `termux-api` installed. 
 
 **Extending the script:** You may use the script with any of the websites to monitor text changes. Just change the `url`.
 

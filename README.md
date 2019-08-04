@@ -39,6 +39,14 @@ node pinger.js
 
 
 
+#### NOTE
+
+You need not bother about connection drops, terminal crashes, device restarts. We’ve got you covered. Once started, Pinger saves a local copy of the website and compares it with the latest version in subsequent checks after restarts or network connection resets. So no change goes unnoticed regardless of whether or not you were offline for some period.
+
+Just restart the script using `node pinger.js` inside the `pappuPinger` directory. 
+
+
+
 #### Bonus for Termux Users
 
 You get a system notification when a change occurs, you must have `termux-api` installed. 
@@ -48,6 +56,12 @@ You get a system notification when a change occurs, you must have `termux-api` i
 #### Extending the script
 
 You may use the script with any of the websites to monitor text changes. Just change the `url` inside `pinger.js`.  **Caution** The script may not work as expected for websites with dynamic content E.g. ‘amazon.in’.
+
+
+
+#### Known issues
+
+Does not detect text within `<span>` tags.
 
 
 

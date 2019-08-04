@@ -41,13 +41,13 @@ node pinger.js
 
 #### Bonus for Termux Users
 
-You get a system notification if you have `termux-api` installed. 
+You get a system notification when a change occurs, you must have `termux-api` installed. 
 
 
 
 #### Extending the script
 
-You may use the script with any of the websites to monitor text changes. Just change the `url` inside `pinger.js`.  **Caution** The script may keep notifying changes if the website uses hashes.
+You may use the script with any of the websites to monitor text changes. Just change the `url` inside `pinger.js`.  **Caution** The script may not work as expected for websites with dynamic content E.g. ‘amazon.in’.
 
 
 

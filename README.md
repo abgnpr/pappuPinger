@@ -41,7 +41,7 @@ node pinger.js
 
 #### NOTE
 
-You need not bother about connection drops, terminal crashes, device restarts. We’ve got you covered. Once started, Pinger saves a local copy of the website and compares it with the latest version in subsequent checks after restarts or network connection resets. So no change goes unnoticed regardless of whether or not you were offline for some period.
+You need not bother about connection drops, terminal crashes or device restarts. We’ve got you covered. Once started, Pinger saves a local copy of the website and compares it with the latest version in subsequent checks after restarts or network connection resets. So no change goes unnoticed regardless of whether or not you were offline for some period.
 
 Just restart the script using `node pinger.js` inside the `pappuPinger` directory. 
 

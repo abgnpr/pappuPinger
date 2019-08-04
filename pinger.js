@@ -61,15 +61,17 @@ function check() {
       } else {
         console.log(`\n\nchanged / updated !  ${
           moment().format("DD/MM/YYYY hh:mm a")}`)
+        
         let differences = jsdiff.diffLines(prev_siteText+'', siteText)
         differences.forEach((part) => {
           var color = part.added ? 'green' : part.removed ? 'red' : 'grey';
           if (color != 'grey')
             process.stderr.write(part.value[color]);
         })
+        
         commandExists('termux-notification')
           .then(function (command) {
-            exec(`${command} -title Changed! -content 'Something\'s changed in you page. Check the terminal.'`, (err, stdout, stderr) => {
+            exec(`${command} --title 'PappuPinger : change observed!' --content 'Something has changed, check terminal'`, (err, stdout, stderr) => {
               if (err) {
                 console.error(err);
                 return;
@@ -79,8 +81,11 @@ function check() {
           }).catch(function () {
             // console.log('termux-notification api not found');
           });
+
         prev_siteText = siteText
         createLocalCopy(siteText)
+        console.log('Waiting for more changes...');
+        
       }
     }
   })

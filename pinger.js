@@ -34,7 +34,7 @@ function check() {
     url: 'https://ppuponline.in/index.php?act=home',
 
   }, (err, res, body) => {
-    
+
     if (err) {
       if (!errDisplayed) {
         console.log('\nDisconnected / page down / not available\n\
@@ -61,17 +61,17 @@ function check() {
       } else {
         console.log(`\n\nchanged / updated !  ${
           moment().format("DD/MM/YYYY hh:mm a")}`)
-        
-        let differences = jsdiff.diffLines(prev_siteText+'', siteText)
+
+        let differences = jsdiff.diffLines(prev_siteText + '', siteText)
         differences.forEach((part) => {
           var color = part.added ? 'green' : part.removed ? 'red' : 'grey';
           if (color != 'grey')
             process.stderr.write(part.value[color]);
         })
-        
+
         commandExists('termux-notification')
           .then(function (command) {
-            exec(`${command} --title 'PappuPinger : change observed!' --content 'Something has changed, check terminal'`, (err, stdout, stderr) => {
+            exec(`${command} --title 'PappuPinger:changed!' --content 'Something has changed, check terminal'`, (err, stdout, stderr) => {
               if (err) {
                 console.error(err);
                 return;
@@ -85,7 +85,7 @@ function check() {
         prev_siteText = siteText
         createLocalCopy(siteText)
         console.log('Waiting for more changes...');
-        
+
       }
     }
   })

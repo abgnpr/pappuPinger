@@ -29,7 +29,7 @@ A node script that pings our university website and notifies us about changes.
 
 
 
-  ### Start `pinger.js`
+### Start `pinger.js`
 
 ```bash
 node pinger.js

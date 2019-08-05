@@ -1,6 +1,8 @@
 # pappuPinger
 A node script that pings our university website and notifies us about changes.
 
+![](gifs/changeupdate.gif)
+
 ### Installation
 
 * Prerequisites
@@ -35,7 +37,10 @@ A node script that pings our university website and notifies us about changes.
 node pinger.js
 ```
 
-* Rest will self explanatory.  Don’t worry.
+![](gifs/pingerStart.gif)
+
+* For 3600000 ms, the check is performed once every hour. Feel free to set it to any value. However, values below 2000 ms are not recommended.
+* Rest will be self explanatory.  Don’t worry.
 
 
 
